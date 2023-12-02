@@ -1,0 +1,53 @@
+:root {
+  --grid-gap: 15px;
+  --grid-gutter: 15px;
+  --spacer: 30px;
+  --spacer-default: 40px;
+  --spacer-lg: 50px;
+}
+@media (min-width: 768px) {
+  :root {
+    --grid-gap: 16px;
+    --grid-gutter: 26px;
+    --spacer: 40px;
+    --spacer-default: 80px;
+    --spacer-lg: 120px;
+  }
+}
+@media (min-width: 992px) {
+  :root {
+    --grid-gap: 20px;
+    --spacer: 50px;
+    --spacer-default: 100px;
+    --spacer-lg: 200px;
+  }
+}
+@media (min-width: 1200px) {
+  :root {
+    --grid-gutter: 28px;
+  }
+}
+@media (min-width: 1640px) {
+  :root {
+    --grid-gutter: 50px;
+  }
+}
+
+.wp-block {
+  max-width: 1400px;
+}
+
+.wp-block.editor-post-title {
+  padding-left: var(--grid-gutter);
+  padding-right: var(--grid-gutter);
+}
+
+.acf-block-body .acf-block-fields {
+  margin: 0 40px;
+}
+
+.cs-block:not(.real-preview) {
+  padding-bottom: 0 !important;
+}
+
+/*# sourceMappingURL=gutenberg.min.css.map */

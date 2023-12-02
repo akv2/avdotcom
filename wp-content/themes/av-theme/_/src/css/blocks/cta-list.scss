@@ -1,0 +1,48 @@
+@import '../libs';
+
+.cs-block.cta-list:not(.is-preview ) {
+
+  .container { @include grid-with-gutters; }
+  
+  // Half layout
+  .links { 
+    grid-column: 1 / -1;
+    @include breakpoint( handheld ) { grid-column: 7 / span 6; }
+    @include grid(1);
+    row-gap:20px;
+    
+    a { 
+      // @mixin button( $bg: $green, $text-color: $dark, $outline-width: 0, $outline-color: $green ) {
+      @include button( none, $light, $dark, 1px, $dark, 60px );
+      // @include font--mid-sans;
+      border-radius:50px;
+      text-align:left;
+      @include hover { outline-color:$light; }
+
+      @include breakpoint( desktop ) { height:100px; }
+
+      &::after { border-radius: 50px; }
+
+      span { 
+        display:grid;
+        grid-template-columns: 1fr 64px;
+        
+        &::after {
+          background-image:url('../../../img/arrow-green.svg');
+          content:'';
+          align-self:center;
+          background-size:100%;
+          grid-columns: 2 / span 1;
+          justify-self:end;
+          height:15px;
+          width:40px;
+        
+          @include breakpoint( desktop ) {
+            height:24px;
+            width:64px;
+          }
+        }
+      }
+    }
+  }
+}

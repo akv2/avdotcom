@@ -1,0 +1,66 @@
+
+@mixin button( $bg: $blue, $hover-bg: $hover-green, $text-color: $dark, $outline-width: 0, $outline-color: $green, $height: 60px ) {
+  $transition-timing: 0.25s;
+  align-items:center;
+  background:none;
+  color:$text-color;
+  border:1px solid #000;
+  border-radius: 30px;
+  display:inline-grid;
+  font-size:16px;
+  height:$height;
+  outline-offset:-1px;
+  outline-color:$outline-color;
+  outline-style:solid;
+  outline-width:$outline-width;
+  padding:0 30px;
+  position:relative;
+  text-align:center;
+  text-decoration:none;
+  @include transition-easing;
+  transition:transform $transition-timing, border-color $transition-timing, outline-color $transition-timing;
+
+  span { position:relative;z-index:1;}
+
+  // No hovers on mobile
+  @include breakpoint( handheld ) {
+    @include hover { 
+      background:none;
+      border-color:$blue; 
+      transform:scale(1.1);
+    }
+  }
+
+  @include breakpoint( desktop ) { padding:0 50px; }
+  
+  &:focus-visible { outline:4px solid coral;}
+  
+}
+
+@mixin button-static {
+  @include button;
+  border:1px solid #000;
+  border-radius:30px;
+  background:none;
+  outline:none;
+  @include transition-easing;
+  transition: border-color 0.25s, transform 0.25s, color 0.25s;
+  width:100%;
+  appearance:none;
+  -webkit-appearance:none;
+
+  // No animation cause we can't adjust html in button
+  &::after { display:none; }
+  @include breakpoint( handheld ) {
+    @include hover { 
+      background:none;
+      border-color:$blue; 
+      transform:scale(1.1);
+    }
+  }
+  &:focus-visible {
+    border:1px solid $dark;
+  }
+
+  @include breakpoint( desktop ) { width:240px; }
+}

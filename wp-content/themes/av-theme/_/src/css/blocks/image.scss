@@ -1,0 +1,12 @@
+@import '../libs';
+
+.cs-block.image:not(.is-preview ) {
+  .container { @include grid-with-gutters; }
+  .image-holder {
+    grid-column: 1 / -1;
+    img { 
+      border-radius:30px;
+      max-width:100%; 
+    }
+  }
+}

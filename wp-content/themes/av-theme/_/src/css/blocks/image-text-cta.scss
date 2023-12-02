@@ -1,0 +1,50 @@
+@import '../libs';
+
+.cs-block.image-text-cta:not(.is-preview ) {
+  .container { @include grid-with-gutters; }
+  .image-holder { 
+    grid-column: 1 / -1; 
+    margin-bottom:20px;
+    @include breakpoint( large-mobile ) { grid-column: 1 / span 2; }
+    @include breakpoint( handheld ) { 
+      grid-column: 1 / span 4; 
+      margin-bottom:0;
+    }
+    img { 
+      border-radius:30px;
+      max-width:100%; 
+    }
+  }
+  .content { 
+    align-self:end;
+    grid-column: 1 / -1;
+    @include breakpoint( handheld ) { grid-column: 6 / -1;  }
+    @include breakpoint( desktop ) { grid-column: 7 / -1;  }
+  }
+  h2 { 
+    @include font--large-serif; 
+    margin:0 0 10px;
+  }
+  .text { @include font--default;}
+  .text p { margin-bottom:15px; }
+  
+
+  &.style-title h3 { 
+    @include font--large-serif; 
+    margin:0 0 30px;
+  }
+  &.style-paragraph h3 { 
+    // @include font--mid-sans; 
+    margin:0 0 30px;
+  }
+  h3, .content {
+    p { margin:0 0 20px; }
+    p:last-child { margin-bottom:0; }
+    a { 
+      color:$dark; 
+      @include hover { color: $lt-brown; }
+    }
+  }
+
+  .g-link { @include button; }
+}

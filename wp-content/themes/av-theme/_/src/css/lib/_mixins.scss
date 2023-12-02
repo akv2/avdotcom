@@ -1,0 +1,95 @@
+@use "sass:math";
+
+
+// Screen readers
+@mixin sr-only {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+// Helpers
+@mixin appearance( $a ) {
+  appearance:         $a;
+  -webkit-appearance: $a;
+  -ms-appearance:     $a;
+  -moz-appearance:    $a;
+}
+
+@mixin hover {
+  @media( pointer:fine ) {
+    &:hover { @content; }
+  }
+}
+
+
+@mixin no-mobile-brs( $breakpoint: desktop ) {
+  br {
+    display:none;
+    @include breakpoint( $breakpoint ) { display:inline; }
+  }
+}
+
+
+@mixin reset-ul {
+  list-style-type:none;
+  padding:0;
+  margin:0;
+
+  li { margin:0; }
+}
+
+
+
+@mixin aspect-ratio( $width, $height ) {
+  position:relative;
+  &:before {
+    display: block;
+    content: "";
+    padding-top: math.div($height, $width) * 100%;
+    width: 100%;
+  }
+
+  & > img, & > video, & > .content {
+    position:absolute;
+    left:0;
+    height:100%;
+    width:100%;
+    top:0;
+    object-fit:cover;
+  }
+}
+
+@mixin transition( $transition ) {
+  transition:$transition;
+  @include transition-easing;
+}
+@mixin transition-easing() { transition-timing-function: ease-in-out; }
+
+
+
+// Spaces (above below)
+@mixin space-a-large { padding-top:var(--spacer-lg); }
+@mixin space-b-large { padding-bottom:var(--spacer-lg); }
+@mixin space-a-default { padding-top:var(--spacer-default); }
+@mixin space-b-default { padding-bottom:var(--spacer-default); }
+@mixin space-a-small { padding-top:var(--spacer); }
+@mixin space-b-small { padding-bottom:var(--spacer); }
+
+
+@mixin input-styles {
+  border:1px solid #000;
+  background:#fff;
+  border-radius:30px;
+  font-weight:$regular;
+  height:50px;
+  padding:18px 20px 17px;
+  width:100%;
+  max-width:none !important;
+
+  &::placeholder { @include font--small-caps; }
+}

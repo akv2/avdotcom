@@ -1,0 +1,51 @@
+@import '../libs';
+
+.cs-block.hero-illustration:not(.is-preview ) {
+
+  .container { @include grid-with-gutters; }
+
+  .illustration { 
+    grid-column: 1 / -2;
+    margin-left:-35%;
+    margin-bottom:var(--spacer);
+    @include breakpoint( handheld ) { 
+      align-self:center;
+      grid-column: 1 / span 5; 
+      margin-right: calc( var(--grid-gap) * -0.5 );
+      margin-left: -100%;
+      margin-bottom:0;
+    }
+    
+    img {max-width:100%;}
+
+
+    // background-position:bottom right;
+    // background-repeat:no-repeat;
+    // height:100%;
+    // margin-left: _negative_margin();
+
+    // grid-column: 1 / -1;
+    // margin:0 calc( var(--grid-gutter) * -1 );
+    // @include breakpoint( handheld ) { 
+    //   grid-column: 1 / span 5; 
+    //   margin-right: calc( var(--grid-gap) * -0.5 );
+    // }
+    // @include breakpoint( full ) {
+    //   margin-left: _negative_margin();
+    // }
+  }
+
+  h2 { 
+    @include font--large-serif;
+    color:$dark;
+    // margin-top:250px;
+    // margin-bottom:80px;
+    margin:0;
+    grid-column: 1 / -1;
+    @include breakpoint( handheld ) { 
+      align-self:center;
+      grid-column: 7 / -1; 
+      margin:100px 0;
+    }
+  }
+}

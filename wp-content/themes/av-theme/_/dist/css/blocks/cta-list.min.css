@@ -1,0 +1,139 @@
+:root {
+  --grid-gap: 15px;
+  --grid-gutter: 15px;
+  --spacer: 30px;
+  --spacer-default: 40px;
+  --spacer-lg: 50px;
+}
+@media (min-width: 768px) {
+  :root {
+    --grid-gap: 16px;
+    --grid-gutter: 26px;
+    --spacer: 40px;
+    --spacer-default: 80px;
+    --spacer-lg: 120px;
+  }
+}
+@media (min-width: 992px) {
+  :root {
+    --grid-gap: 20px;
+    --spacer: 50px;
+    --spacer-default: 100px;
+    --spacer-lg: 200px;
+  }
+}
+@media (min-width: 1200px) {
+  :root {
+    --grid-gutter: 28px;
+  }
+}
+@media (min-width: 1640px) {
+  :root {
+    --grid-gutter: 50px;
+  }
+}
+
+.cs-block.cta-list:not(.is-preview) .container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: var(--grid-gap);
+  max-width: 1640px;
+  margin: 0 auto;
+  padding-left: var(--grid-gutter);
+  padding-right: var(--grid-gutter);
+}
+@media (min-width: 768px) {
+  .cs-block.cta-list:not(.is-preview) .container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-column-gap: var(--grid-gap);
+  }
+}
+.cs-block.cta-list:not(.is-preview) .links {
+  grid-column: 1/-1;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-column-gap: var(--grid-gap);
+  row-gap: 20px;
+}
+@media (min-width: 768px) {
+  .cs-block.cta-list:not(.is-preview) .links {
+    grid-column: 7/span 6;
+  }
+}
+.cs-block.cta-list:not(.is-preview) .links a {
+  align-items: center;
+  background: none;
+  color: #000;
+  border: 1px solid #000;
+  border-radius: 30px;
+  display: inline-grid;
+  font-size: 16px;
+  height: 60px;
+  outline-offset: -1px;
+  outline-color: #000;
+  outline-style: solid;
+  outline-width: 1px;
+  padding: 0 30px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition-timing-function: ease-in-out;
+  transition: transform 0.25s, border-color 0.25s, outline-color 0.25s;
+  border-radius: 50px;
+  text-align: left;
+}
+.cs-block.cta-list:not(.is-preview) .links a span {
+  position: relative;
+  z-index: 1;
+}
+@media (min-width: 768px) and (pointer: fine) {
+  .cs-block.cta-list:not(.is-preview) .links a:hover {
+    background: none;
+    border-color: #0089FF;
+    transform: scale(1.1);
+  }
+}
+@media (min-width: 992px) {
+  .cs-block.cta-list:not(.is-preview) .links a {
+    padding: 0 50px;
+  }
+}
+.cs-block.cta-list:not(.is-preview) .links a:focus-visible {
+  outline: 4px solid coral;
+}
+@media (pointer: fine) {
+  .cs-block.cta-list:not(.is-preview) .links a:hover {
+    outline-color: #EFEAE1;
+  }
+}
+@media (min-width: 992px) {
+  .cs-block.cta-list:not(.is-preview) .links a {
+    height: 100px;
+  }
+}
+.cs-block.cta-list:not(.is-preview) .links a::after {
+  border-radius: 50px;
+}
+.cs-block.cta-list:not(.is-preview) .links a span {
+  display: grid;
+  grid-template-columns: 1fr 64px;
+}
+.cs-block.cta-list:not(.is-preview) .links a span::after {
+  background-image: url("../../../img/arrow-green.svg");
+  content: "";
+  align-self: center;
+  background-size: 100%;
+  grid-columns: 2/span 1;
+  justify-self: end;
+  height: 15px;
+  width: 40px;
+}
+@media (min-width: 992px) {
+  .cs-block.cta-list:not(.is-preview) .links a span::after {
+    height: 24px;
+    width: 64px;
+  }
+}
+
+/*# sourceMappingURL=cta-list.min.css.map */

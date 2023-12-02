@@ -1,0 +1,204 @@
+@use 'sass:math';
+// Default variables
+$font_size: 14px !default;
+$font_size_small: 12px !default;
+
+$input_border_radius: 5px !default;
+$input_height: 38px !default;
+$input_height_small: 36px !default;
+$dropdown_padding: 18px !default;
+
+$gray_dark: #444 !default;
+$gray: #999 !default;
+$gray_light: #e8e8e8 !default;
+$gray_lighter: #f6f6f6 !default;
+$primary_light: $gray !default;
+$arrow_color: $gray !default;
+
+// Style the dropdown
+.nice-select {
+  align-items:center;
+  position:absolute;
+  inset:0;
+  display:grid;
+  grid-template-areas: "select";
+  height:60px;
+  outline: none;
+  padding:0 30px;
+  text-align: left !important;
+  transition: all 0.2s ease-in-out;
+
+  user-select: none;
+  white-space: nowrap;
+  width: auto;
+
+  .current { position:relative; }
+  .current, &::after { grid-area: select; }
+  @include breakpoint( desktop ) { height:100px; padding:0 50px; }
+
+
+  // &:hover { border-color: darken($gray_light, 5%); }
+  // &:active, &:focus { border-color: $primary_light; }
+  
+  // Arrow
+  &::after {
+    content: "";
+    display:block;
+    width: 9px;
+    height:6px;
+    background-color: $dark;
+    -webkit-clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+    clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+    justify-self:end;
+    transition: all 0.15s ease-in-out;
+  }
+  
+  &.open {
+    @extend :active;
+    &:after { transform: rotate(-180deg); }
+    .nice-select-dropdown {
+      opacity: 1;
+      pointer-events: auto;
+      transform: scale(1) translateY(0);
+    }
+  }
+  &.disabled {
+    border-color: lighten($gray_light, 2%);
+    color: $gray;
+    pointer-events: none;
+    &:after { 
+      border-color: lighten($arrow_color, 20%);
+    }
+  }
+
+  .nice-select-dropdown{
+    margin-top: -61px;
+    @include breakpoint( desktop ) { margin-top:-101px; }
+    background-color: $light;
+    border-radius: 30px;
+    @include breakpoint( desktop ) { border-radius:50px; }
+    // box-shadow: 0 0 0 1px rgba($gray_dark, .11);
+    border:1px solid $dark;
+    pointer-events: none;
+    position: absolute;
+    top: 100%; 
+    left: -1px;
+    right:-1px;
+    // transform-origin: 50% 0;
+    // transform: scale(.75) translateY(- math.div(-$input-height, 2));
+    // transition: all .2s cubic-bezier(0.5, 0, 0, 1.25), opacity .15s ease-out;
+    z-index: 9;
+    opacity: 0;
+  }
+
+  // List and options
+  .list {
+    border-radius: $input_border_radius;
+    box-sizing: border-box;
+    overflow: hidden;
+    padding: 0;
+    max-height: 210px;
+    overflow-y: auto;
+  }
+  .option {
+    cursor: pointer;
+    font-weight: 400;
+    line-height: $input_height + 2;
+    list-style: none;
+    outline: none;
+    padding:0 30px 10px;
+    @include breakpoint( desktop ) { padding:0 50px 10px; }
+    text-align: left;
+    transition: all 0.2s;
+    &:hover, &.focus { 
+      color:$green;
+    }
+    // &.selected { 
+    //   font-weight: bold;
+    // }
+    &:first-child { color:$lt-brown;}
+    &.disabled {
+      background-color: transparent;
+      color: $gray;
+      cursor: default;
+    }
+  }
+  
+  .optgroup{
+    color:$lt-brown;
+  }
+}
+
+// Use display instead of opacity for IE <= 10
+.no-csspointerevents .nice-select {
+  .nice-select-dropdown {
+    display: none;
+  }
+  &.open {
+    .nice-select-dropdown {
+      display: block;
+    }
+  }
+}
+
+
+.nice-select .list::-webkit-scrollbar {
+  width: 0
+}
+
+
+
+
+// .nice-select{
+//   // .has-multiple {
+//   //   white-space: inherit;
+//   //   height: auto;
+//   //   padding: 7px 12px;
+//   //   min-height: 36px;
+//   //   line-height: 22px;
+
+//   //   span.current {
+//   //     border: 1px solid #CCC;
+//   //     background: #EEE;
+//   //     padding: 0 10px;
+//   //     border-radius: 3px;
+//   //     display: inline-block;
+//   //     line-height: 24px;
+//   //     font-size: 14px;
+//   //     margin-bottom: 3px;
+//   //     margin-right: 3px
+//   //   }
+
+//   //   .multiple-options {
+//   //     display: block;
+//   //     line-height: 24px;
+//   //     padding: 0
+//   //   }
+//   // }
+
+//   .nice-select-search-box {
+//     box-sizing: border-box;
+//     width: 100%;
+//     padding: 5px;
+//     pointer-events: none;
+//     border-radius: 5px 5px 0 0;
+//   }
+
+//   .nice-select-search {
+//     box-sizing: border-box;
+//     background-color: #fff;
+//     border: 1px solid $gray_light;
+//     border-radius: 3px;
+//     color: $gray_dark;
+//     display: inline-block;
+//     vertical-align: middle;
+//     padding: 7px 12px;
+//     margin: 0 10px 0 0;
+//     width: 100%;
+//     min-height: 36px;
+//     line-height: 22px;
+//     height: auto;
+//     outline: 0!important;
+//     font-size: $font_size;
+//   }
+// }

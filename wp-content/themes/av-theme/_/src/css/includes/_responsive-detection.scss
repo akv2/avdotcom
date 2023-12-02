@@ -1,0 +1,28 @@
+#responsive-detection {
+  *:not(.mobile) { display:none; }
+  
+  @include breakpoint( large-mobile ) {
+    .mobile { display:none; }
+    .large-mobile { display:block; }
+  }
+  @include breakpoint( handheld ) {
+    .large-mobile { display:none; }
+    .handheld { display:block; }
+  }
+  @include breakpoint( wordpress ) {
+    .handheld { display:none; }
+    .wordpress { display:block; }
+  }
+  @include breakpoint( desktop ) {
+    .wordpress { display:block; }
+    .desktop { display:block; }
+  }
+  @include breakpoint( large-desktop ) {
+    .desktop { display:block; }
+    .large-desktop { display:block; }
+  }
+  @include breakpoint( full ) {
+    .large-desktop { display:block; }
+    .full { display:block; }
+  }
+}

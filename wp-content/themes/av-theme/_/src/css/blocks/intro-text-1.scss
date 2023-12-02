@@ -1,0 +1,14 @@
+@import '../libs';
+
+.cs-block.intro-text-1:not(.is-preview ) {
+  .container { @include grid-with-gutters; }
+  .content { 
+    grid-column: 1 / -1;
+    @include breakpoint( handheld ) { grid-column: 7 / -1; }
+  }
+  .text { 
+    // @include font--mid-sans;
+    margin-bottom:30px;
+  }
+  .g-link { @include button; }
+}

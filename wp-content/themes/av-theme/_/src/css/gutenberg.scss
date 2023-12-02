@@ -1,0 +1,22 @@
+@import 'libs';
+
+.wp-block{ max-width: 1400px; }
+.wp-block.editor-post-title { @include gutters; }
+
+// Open block (edit mode)
+.acf-block-body .acf-block-fields { margin: 0 40px; }
+
+
+
+
+// &&&&&&&&&&&&&&&&&&&&&&&&&
+// BLOCK STYES
+// .wp-block .preview-text {
+//   border:2px solid #000;
+//   font-size:20px;
+//   padding:20px 50px;
+//   text-align:center;
+// }
+.cs-block:not( .real-preview ) {
+  padding-bottom:0 !important;
+}

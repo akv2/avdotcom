@@ -1,0 +1,71 @@
+@import '../libs';
+
+.cs-block.showcase:not(.is-preview ) {
+  font-size:20px;
+
+  .container { 
+    @include grid-with-gutters; 
+    // grid-template-rows: repeat( 5, auto );
+
+    // @include breakpoint( handheld ) {  row-gap: 50px; }
+    // @include breakpoint( large-desktop )
+  }
+
+  .showcase-item { 
+    background:#f0f0f0;
+    padding:30px;
+    border-radius:30px;
+
+    grid-column: 1 / -1; 
+    display:grid;
+    grid-row: span 6;
+    grid-template-rows: subgrid;
+    margin-bottom:30px;
+    
+    @include breakpoint( handheld ) { 
+      grid-column: span 6; 
+      margin-bottom:50px;
+    }
+    @include breakpoint( large-desktop) {
+      // grid-column: span 4; 
+      margin-bottom:100px;
+    }
+
+    h2 { 
+      @include font--large-serif; 
+      margin-top:0;
+      margin-bottom:5px;
+    }
+    .expertise {
+      font-size:12px;
+      line-height:20px;
+      margin-bottom:15px;
+      text-transform:uppercase;
+    }
+
+    .image-holder { 
+      display:block;
+      margin-bottom:30px; 
+    }
+    .image-holder img { 
+      box-shadow:0 0 1px #000;
+      width:100%; 
+    }
+
+
+    .description,
+    .g-link {
+      font-size:16px;
+      line-height:26px;
+    }
+    .description p {
+      margin: 0 0 30px; 
+    }
+    .g-link {
+      font-weight:bold;
+      // @include invert-link-styles;
+      color:#000;
+    }
+    
+  }
+}

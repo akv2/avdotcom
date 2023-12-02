@@ -1,0 +1,28 @@
+
+
+@mixin grid( $cols: 12 ) {
+  display: grid;
+  grid-template-columns: repeat( $cols, 1fr );
+  grid-column-gap: $grid-gap;
+}
+
+@mixin gutters {
+  padding-left: $gutter;
+  padding-right: $gutter;
+}
+
+@mixin max-width {
+  max-width: $max-width;
+  margin: 0 auto;
+}
+
+// Top level grids with gutters
+@mixin grid-without-gutters {
+  @include grid(4);
+  @include breakpoint( handheld ) { @include grid(12); }
+}
+@mixin grid-with-gutters {
+  @include grid-without-gutters;
+  @include max-width;
+  @include gutters;
+}

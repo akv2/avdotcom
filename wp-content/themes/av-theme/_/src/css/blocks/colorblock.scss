@@ -1,0 +1,80 @@
+@import '../libs';
+
+.cs-block.colorblock:not(.is-preview ) {
+
+  .container { @include grid-with-gutters; }
+
+  h2 { 
+    @include font--large-serif;
+    grid-column: 1 / -1; 
+    margin:0 0 30px;
+
+    @include breakpoint( handheld ) { 
+      grid-column: 1 / span 6; 
+      margin-bottom:0;
+    }
+  }
+  &.has-cta h2 { margin:0 0 30px; }
+  &.no-cta h2 { margin:0 0 50px; }
+
+  .cta-holder { 
+    align-self:end;
+    grid-column: 1 / -1; 
+    @include breakpoint( handheld ) { grid-column: 1 / span 6; }
+    .g-link { @include button }
+  }
+  .image-holder { 
+    @include aspect-ratio( 1, 1 );
+    @include breakpoint( large-mobile ) { @include aspect-ratio( 16, 9 ); }
+    @include breakpoint( handheld ) { @include aspect-ratio( 1, 1 ); }
+
+    grid-column: 1 / -1; 
+    grid-row: 1 / span 1;
+    margin-bottom:30px;
+
+    @include breakpoint( handheld ) { 
+      grid-column: 7 / -1; 
+      grid-row: 1 / span 2;
+      margin-bottom:0;
+    }
+    
+    img { max-width:100%; }
+  }
+
+
+  // Image types
+  &.image-card .bg {
+    padding-bottom:50px;
+    padding-top:50px;
+
+    .image-holder img { border-radius: 30px; }
+  }
+  &.image-full {
+    h2 { padding-top:50px; }
+    .cta-holder { padding-bottom:50px; }
+    .image-holder { 
+      margin:0 calc( ( var(--grid-gutter) * -1 ) + var(--scrollbar-width) ); 
+      @include breakpoint( handheld ) { margin: 0 _negative_margin() 0 calc( var(--grid-gap) * -0.5 );} 
+    }
+  }
+
+  // Styles
+  &.style-brown {
+    .bg { background:$brown; }
+    h2 { color:$light; }
+  }
+  &.style-light-green {
+    .bg { background:$green; }
+    h2 { color:$dark; }
+    .g-link { 
+      outline-color:$dark;
+      outline-width:1px;
+      &:hover { outline-color:$green; }
+    }
+  }
+  &.style-dark-green {
+    .bg { background:$dark; }
+    h2 { color:$light; }
+  }
+
+}

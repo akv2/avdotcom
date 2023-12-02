@@ -1,0 +1,42 @@
+@use "sass:math";
+
+// ----------------------------------
+// Functions
+@function _vw( $pixels: 80 , $screen_width: 1640px ){
+	// @return ($pixels / $screen_width * 100) + vw;
+	$vws: math.div($pixels, $screen-width);
+	@return ( $vws * 100 ) + vw;
+}
+@function _cols( $columns: 12, $gutter: 20, $grid-col-count: 12, $basis: 100vw ) {
+  $grid-gap-num: 20;
+	$total-gaps: ( $grid-col-count - 1 ) * $grid-gap-num;
+	$column-gaps: ( $columns - 1 ) * $grid-gap-num;
+	$static: $total-gaps + ( $gutter * 2 );
+
+	// Calculates a single column width, then multiplys by our columns and adds the gaps
+	@return calc( ( ( #{ $basis } - var(--scrollbar-width) - #{ $static } ) / #{ $grid-col-count } ) * #{ $columns } + #{ $column-gaps } );
+}
+@function _cols_simplified( $columns: 4, $which: mobile ) {
+	@if $which == mobile or $which == large-mobile {
+		@return _cols( $columns, $mobile-gutter, 4 );
+	}
+	@else if $which == handheld or $which == desktop {
+		@return _cols( $columns, $desktop-gutter );
+	}
+	@else if $which == large-desktop {
+		@return _cols( $columns, $large-desktop-gutter, 12 );
+	}
+	@else if $which == full {
+		$total-gaps: 11 * $grid-gap;
+		$column-gaps: ( $columns - 1 ) * $grid-gap;
+		$static: $total-gaps + ( $large-desktop-gutter * 2 );
+
+		@return math.div( ( $max-width - $static ), 12 ) * $columns + $column-gaps;
+	}
+}
+@function _em( $pixels: 12px, $base: 16px ){
+	@return ( math.div( $pixels, $base ) ) + em;
+}
+@function _negative_margin( $div: 2 ) { // <= $div = how many columns (half width is 2)
+  @return calc( ( ( 100vw - ( ( 100% * $div ) + ( $grid-gap * ( $div - 1 ) ) ) ) / -2 ) + var(--scrollbar-width) );
+}

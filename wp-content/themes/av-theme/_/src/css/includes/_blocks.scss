@@ -1,0 +1,15 @@
+body { // <= specificity overrides
+
+  // space between blocks
+  .space-a-large { @include space-a-large; }
+  .space-a-default { @include space-a-default; }
+  .space-a-small { @include space-a-small; }
+  .space-b-large { @include space-b-large; }
+  .space-b-default { @include space-b-default; }
+  .space-b-small { @include space-b-small; }
+
+  //Block background colors
+  .bg-white { background:#fff; }
+  // .bg-blue { background:$blue; }
+
+}

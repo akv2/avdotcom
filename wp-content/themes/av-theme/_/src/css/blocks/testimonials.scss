@@ -1,0 +1,39 @@
+@import '../libs';
+
+.cs-block.testimonials:not(.is-preview ) {
+
+  // Moving border outside of the slide
+  //  fixes the "auto height" issue (if 
+  //  border is shorter than other slides, 
+  //  where do the bullets go?)
+  .glide__track {
+    border:1px solid $dark;
+    border-radius: 30px;
+  }
+
+
+  .border {
+    @include grid-with-gutters; 
+    padding: 50px 20px 75px;
+    row-gap: 26px;
+    @include breakpoint( large-desktop ) { padding:126px 0 90px; }
+  }
+
+  .text { 
+    @include font--large-serif;
+    align-self: center;
+    grid-column: 1 / -1;
+    text-align:center;
+    @include breakpoint( handheld ) { grid-column: 2 / -2; }
+    @include breakpoint( full ) { grid-column: 3 / -3; }
+  }
+  .by {
+    @include font--default(16px);
+    grid-column: 1 / -1;
+    letter-spacing: 0.05em;
+    text-align:center;
+    text-transform:uppercase;
+    @include breakpoint( handheld ) { grid-column: 2 / -2; }
+    @include breakpoint( full ) { grid-column: 3 / -3; }
+  }
+}

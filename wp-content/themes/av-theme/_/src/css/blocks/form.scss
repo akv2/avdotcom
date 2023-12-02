@@ -1,0 +1,246 @@
+@import '../libs';
+
+.cs-block.form {
+
+  // WPForms styles set in includes/_wpforms.scss
+
+
+
+  // Field specific styles
+  div > div.wpforms-container-full form {
+
+    .wpforms-field-container {
+
+      // Checkbox (top)
+      .wpforms-field-checkbox.full ul {
+        @include breakpoint( desktop ) {
+          @include grid(8);
+          li {
+            grid-column: span 2;
+            margin-right:0 !important;
+          }
+        }
+      }
+
+
+      // Checkbox (bottom) (inline-block until desktop... then switch to grid (parent gets grid at desktop))
+      .field-newsletter-signup {
+        display:inline-block;
+        margin:0 20px 20px 0;
+        grid-column-start: 1;
+        grid-column-end: 3;
+      }
+      .field-create-account {
+        display:inline-block;
+        clear:none;
+        margin-bottom:20px;
+      }
+
+      // Password field
+      // .wpforms-field-password { grid-column: 1 / span 4; }
+
+    }
+
+    .wpforms-submit-container {
+
+      // submit
+      button.wpforms-submit {
+        min-width:240px;
+      }
+
+    }
+  }
+
+}
+
+
+
+
+
+// This is assuming a direct parent display:grid
+// div.wpforms-container-full .wpforms-form input[type=submit], div.wpforms-container-full .wpforms-form button[type=submit], div.wpforms-container-full .wpforms-form .wpforms-page-button
+
+
+.form-wrapper {
+  @include gutters;
+  @include breakpoint( handheld ) {
+    @include grid-with-gutters;
+  }
+}
+
+div > div.wpforms-container { // <=specificity
+  margin:0;
+  width:100%;
+
+  @include breakpoint( handheld ) { grid-column: 1 / -1; }
+  @include breakpoint( large-desktop ) { grid-column: 2 / -2; }
+  @include breakpoint( full ) { grid-column: 3 / -3; }
+
+  form { // <= just for specificity
+
+    // Confirmation
+    .wpforms-confirmation-container-full { grid-column: 1 / span 8; }
+    div.wpforms-error-container { margin-bottom:20px; }
+
+    .wpforms-field-container {
+
+      @include breakpoint( desktop ) {
+        @include grid( 8 );
+        grid-column: 1 / -1;
+      }
+
+      .wpforms-field-label { margin-bottom:10px; }
+
+      .wpforms-field-row-block { width:auto !important;padding:0 !important; }
+      .wpforms-first { grid-column-start: 1; }
+
+      .full { grid-column: span 8; }
+      .half, .wpforms-one-half { grid-column: span 4; }
+      .quarter, .wpforms-one-fourth { grid-column: span 2; }
+
+      // Fourths
+      .wpforms-two-fourths,
+      .wpforms-one-half { grid-column: span 4; }
+
+      // Thirds
+      .wpforms-one-third { grid-column: span 2; }
+      .wpforms-two-thirds { grid-column: span 4; }
+
+      // Firsts
+      .wpforms-one-third.wpforms-first,
+      .wpforms-one-fourth.wpforms-first { grid-column: 1 / span 2; }
+      .wpforms-two-thirds.wpforms-first,
+      .wpforms-two-fourths.wpforms-first,
+      .wpforms-one-half.wpforms-first { grid-column: 1 / span 4; }
+      .wpforms-field-medium { max-width:none !important; }
+      
+      // Password Fields
+      .field-password {
+        .wpforms-one-half {
+          width: auto;
+          margin-left: 0;
+        }
+      }
+
+      .wpforms-field {
+        margin-bottom:20px;
+        margin-left:0;
+        padding:0;
+        float:none;
+        width:auto;
+
+        a { color:#000;text-decoration:underline; }
+        a:hover { text-decoration:none; }
+      }
+      .wpforms-field-row {
+        @include grid( 8 );
+        width:100%;
+
+        &::before,
+        &::after { content:normal; }
+      }
+
+      // Always break to new line
+      // .field-newsletter-signup { grid-column: 1 / span 2; }
+
+      input[type="text"],
+      input[type="email"],
+      input[type="password"],
+      input[type="tel"],
+      select { @include input-styles; }
+
+      select {
+        padding: 0 20px !important;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        background: #fff url('../../img/arrow-down.svg') no-repeat;
+        background-color:rgba(255, 255, 255, 0.5);
+        background-size: 10px;
+        background-position:right 20px center;
+      }
+
+      textarea {
+        background-color:rgba(255, 255, 255, 0.5);
+        border:1px solid #000;
+        border-radius:30px;
+        padding:18px 20px 17px;
+      }
+
+      input, select, textarea {
+        &:focus-visible { border:1px solid transparent;outline: 1px solid $blue; }
+      }
+
+
+
+      .styled {
+        grid-column: 1 / -1;
+        margin-bottom:20px;
+        a {
+          color:#000;
+          @include font--small-caps;
+          @include invert-link-styles;
+        }
+      }
+
+      .wpforms-field-description a {
+        color:#000;
+        text-decoration:underline;
+        &:hover { text-decoration:none; }
+      }
+
+
+
+      // ################################
+      // ERRORS!
+      // ################################
+
+      // Inputs
+      .wpforms-field input.wpforms-error,
+      .wpforms-field input.user-invalid,
+      .wpforms-field textarea.wpforms-error,
+      .wpforms-field textarea.user-invalid,
+      .wpforms-field select.wpforms-error,
+      .wpforms-field select.user-invalid,
+      .wpforms-field.wpforms-has-error .choices__inner {
+        border-color:#DA0032;
+      }
+
+      .wpforms-error {
+        color:#DA0032;
+        margin-top:3px;
+      }
+    }
+    .wpforms-submit-container {
+      padding:0 !important;
+
+      @include breakpoint( desktop ) {
+        @include grid( 10 );
+        grid-column: 1 / -1;
+      }
+
+      button.wpforms-submit { @include button-static; }
+
+      // Ajax loading graphic
+      img.wpforms-submit-spinner { // <= specificity
+        display:block;
+        margin:20px auto 0;
+
+        @include breakpoint( desktop ) { margin-top:30px; }
+      }
+    }
+
+  }
+
+
+  // Confirmations
+  .wpforms-confirmation-container-full, div[submit-success]>.wpforms-confirmation-container-full:not(.wpforms-redirection-message) {
+    background:none;
+    border:0;
+    @include font--large-serif;
+    text-align:center;
+
+    a { color:#000; }
+  }
+
+}

@@ -1,0 +1,28 @@
+/* @font-face {
+  font-family: 'tuuci';
+  src: url('fonts/tuuci.eot?s7lihb');
+  src: url('fonts/tuuci.eot?s7lihb#iefix') format('embedded-opentype'), url('fonts/tuuci.ttf?s7lihb') format('truetype'), url('fonts/tuuci.woff?s7lihb') format('woff'), url('fonts/tuuci.svg?s7lihb#tuuci') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts /
+  font-family: 'tuuci' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== /
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-tuuci-logo:before {
+  content: "\e900";
+  color: #fff;
+} */

@@ -1,0 +1,49 @@
+@import "libs";
+
+
+
+
+// ####################################################
+// GUTENBERG
+// ####################################################
+.wp-block {
+  max-width:1200px;
+
+  .preview-thumb {
+    inset: 20px auto 20px 20px;
+    position: absolute;
+    width: 140px !important;
+  }
+  .preview-text {
+    border:2px solid #000;
+    font-size:20px;
+    font-weight:400;
+    min-height:80px;
+    padding:20px 180px;
+    text-align:center;
+
+    p {
+      font-size:20px;
+      font-weight:400;
+    }
+  }
+}
+
+// Add modules button (center it)
+.components-button.block-list-appender__toggle.block-editor-button-block-appender {
+  margin-left:auto;
+  margin-right:auto;
+}
+
+// Optional title in ACF field title i.e. <span class="opt">(optional)</span>
+.opt {
+  opacity:0.5;
+  font-size:0.75em;
+  font-weight:normal;
+}
+
+// Fix margins on dashicons
+.components-button.has-icon .dashicon {
+  margin-left: auto;
+  margin-right: auto;
+}

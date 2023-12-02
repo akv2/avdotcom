@@ -1,0 +1,22 @@
+main {
+  &.has-top-gradient {
+    position:relative;
+    &::before {
+      content:'';
+      background-image: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0));
+      height:_vw( 350px );
+      max-height:350px;
+      opacity:1;
+      pointer-events:none;
+      position:absolute;
+      transition: opacity 0.5s;
+      inset:0 0 auto;
+      width:100%;
+      z-index:1;
+    }
+  }
+
+  // Header over content
+  padding-top:var( --header-offset-height );
+  .header-over-content & { padding-top:0; }
+}

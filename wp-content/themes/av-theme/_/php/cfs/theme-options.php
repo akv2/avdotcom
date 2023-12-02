@@ -1,0 +1,67 @@
+<?php
+$manual_version_update = ! empty( $_GET['manual-update'] ) && $_GET['manual-update'] == 1;
+acf_add_local_field_group(array (
+	'key' => 'group_5638dda7b6ea7',
+	'title' => 'Site Settings',
+	'fields' => array (
+		array (
+			'key' => 'field_540897301fe3bs',
+			'label' => 'Version',
+			'name' => 'version',
+			'type' => 'text',
+			'instructions' => '<a href="' . admin_url( 'admin-ajax.php' ) . '?security=' . wp_create_nonce('cs_ajax_nonce') . '&action=cs_break_cache&ref=true" class="button">Trigger App Update</a><br>This breaks the cache and forces users to download the latest version of the app as soon as they get access to the internet.',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array (
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'placeholder' => '',
+			'prepend' => '',
+			'append' => '',
+			'maxlength' => '',
+			'readonly' => $manual_version_update ? 0 : 1,
+			'disabled' => 0,
+		),
+		array (
+			'key' => 'field_5638ddbb0a518',
+			'label' => 'Conduit Token',
+			'name' => 'cs_token',
+			'type' => 'text',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array (
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'placeholder' => '',
+			'prepend' => '',
+			'append' => '',
+			'maxlength' => '',
+			'readonly' => 0,
+			'disabled' => 0,
+		),
+	),
+	'location' => array (
+		array (
+			array (
+				'param' => 'options_page',
+				'operator' => '==',
+				'value' => 'acf-options-theme-options',
+			),
+		),
+	),
+	'menu_order' => 0,
+	'position' => 'normal',
+	'style' => 'default',
+	'label_placement' => 'top',
+	'instruction_placement' => 'label',
+	'hide_on_screen' => '',
+	'active' => 1,
+	'description' => '',
+));

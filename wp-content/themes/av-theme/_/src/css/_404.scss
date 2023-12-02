@@ -1,0 +1,16 @@
+
+
+// ##########################
+// Handle max heights
+// ##########################
+#the-404 {
+
+  .content { 
+    @include font--default;
+    margin-bottom:var(--spacer-lg);
+    grid-column: 1 / -1; 
+    text-align:center;
+
+    a { @include button;}
+  }
+}

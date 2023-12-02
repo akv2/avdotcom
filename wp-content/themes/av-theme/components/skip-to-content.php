@@ -1,0 +1,1 @@
+<a class="c-skip-to-content-link" href="#main">Skip to content</a><?php

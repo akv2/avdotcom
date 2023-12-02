@@ -1,0 +1,111 @@
+:root {
+  // Default (no admin bar)
+  --top-of-screen: 0px;
+  --header-offset-height: 120px;
+  --alert-bar-height: 0px;
+  --action-bar-height: 0px;
+}
+
+// * { box-sizing: border-box }
+
+// Handle Admin Bar
+body.admin-bar {
+  --top-of-screen: 46px;
+  @include breakpoint( wordpress) { --top-of-screen: 32px; }
+}
+
+body {
+  background:#fff;
+  color: $dark;
+  font-family: $sans-serif;
+  font-size: 15px;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+
+a {
+  text-decoration: underline;
+
+  // No hovers on mobile
+  @include breakpoint( handheld ) {
+    &:focus,
+    &:hover {
+      outline:none;
+      text-decoration: none;
+    }
+  }
+}
+
+/* Focusing the button with a keyboard will show a dashed black line. */
+a:focus-visible {
+  outline: 4px solid lightcoral;
+}
+
+/* Focusing the button with a mouse, touch, or stylus will show a subtle drop shadow. */
+a:focus:not(:focus-visible) {
+  outline: none;
+}
+
+// Container max width
+.container {
+  @include gutters;
+  @include max-width;
+}
+
+// Screen readers
+.sr-only:not(:focus):not(:active) { @include sr-only; }
+.screen-reader-text { @include sr-only; }
+
+
+
+// ################################################
+// Global Elements: Right Arrow Links
+// ################################################
+// @mixin right-arrow-links {
+//   // Corner
+//   &::before {
+//     content:'';
+//     border:1px solid #fff;
+//     border-width:1px 1px 0 0;
+//     height:7px;
+//     margin-top:-4px;
+//     position:absolute;
+//     right:0;
+//     transform:rotate(45deg);
+//     top:50%;
+//     width:7px;
+//   }
+
+//   // Line
+//   &::after {
+//     content:'';
+//     background:#fff;
+//     height:1px;
+//     margin-top:-1px;
+//     position:absolute;
+//     right:0;
+//     @include transition( width 0.25s );
+//     top:50%;
+//     width:50px;
+//   }
+// }
+
+// .g-right-arrow {
+//   span.arrow {
+//     float:right;
+//     height:20px;
+//     margin-left:15px;
+//     position:relative;
+//     width:50px;
+
+//     @include right-arrow-lines;
+//   }
+
+//   &:hover span.arrow::after { width:60px; }
+// }
+
+
+.cs-block { position:relative; }
+.uppercase { text-transform: uppercase; }

@@ -1,0 +1,100 @@
+:root {
+  --grid-gap: 15px;
+  --grid-gutter: 15px;
+  --spacer: 30px;
+  --spacer-default: 40px;
+  --spacer-lg: 50px;
+}
+@media (min-width: 768px) {
+  :root {
+    --grid-gap: 16px;
+    --grid-gutter: 26px;
+    --spacer: 40px;
+    --spacer-default: 80px;
+    --spacer-lg: 120px;
+  }
+}
+@media (min-width: 992px) {
+  :root {
+    --grid-gap: 20px;
+    --spacer: 50px;
+    --spacer-default: 100px;
+    --spacer-lg: 200px;
+  }
+}
+@media (min-width: 1200px) {
+  :root {
+    --grid-gutter: 28px;
+  }
+}
+@media (min-width: 1640px) {
+  :root {
+    --grid-gutter: 50px;
+  }
+}
+
+.cs-block.pull-quote:not(.is-preview) .container {
+  padding-left: var(--grid-gutter);
+  padding-right: var(--grid-gutter);
+}
+.cs-block.pull-quote:not(.is-preview) blockquote, .cs-block.pull-quote:not(.is-preview) .by {
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .cs-block.pull-quote:not(.is-preview) blockquote, .cs-block.pull-quote:not(.is-preview) .by {
+    text-align: left;
+  }
+}
+.cs-block.pull-quote:not(.is-preview) blockquote {
+  color: black;
+  font-family: "spezia-serif", georgia, serif;
+  font-weight: 300;
+  font-style: italic;
+  font-size: 30px;
+  margin: 0 0 var(--spacer);
+}
+.cs-block.pull-quote:not(.is-preview) .by {
+  text-transform: uppercase;
+}
+.cs-block.pull-quote:not(.is-preview) .link-holder {
+  padding-top: var(--spacer);
+  text-align: center;
+}
+.cs-block.pull-quote:not(.is-preview) .g-link {
+  color: black;
+  font-size: 20px;
+  text-align: center;
+  text-decoration: none;
+}
+.cs-block.pull-quote:not(.is-preview) .g-link::after {
+  content: "";
+  height: 11px;
+  background: url("../../../img/arrow-black.svg");
+  background-size: 100%;
+  display: inline-block;
+  margin-left: 8px;
+  width: 16px;
+}
+@media (min-width: 768px) {
+  .cs-block.pull-quote:not(.is-preview) .container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-column-gap: var(--grid-gap);
+  }
+  .cs-block.pull-quote:not(.is-preview) blockquote, .cs-block.pull-quote:not(.is-preview) .by, .cs-block.pull-quote:not(.is-preview) .link-holder {
+    grid-column: 1/-1;
+  }
+  .cs-block.pull-quote:not(.is-preview) blockquote {
+    font-size: 50px;
+  }
+  .cs-block.pull-quote:not(.is-preview) .by {
+    text-align: center;
+  }
+}
+@media (min-width: 992px) {
+  .cs-block.pull-quote:not(.is-preview) blockquote {
+    grid-column: 3/-3;
+  }
+}
+
+/*# sourceMappingURL=pull-quote.min.css.map */

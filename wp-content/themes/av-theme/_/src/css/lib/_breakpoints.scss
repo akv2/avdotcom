@@ -1,0 +1,38 @@
+// BREAKPOINTS
+@mixin breakpoint($point) {
+  @if $point==full {
+    @media (min-width: 1640px) {
+      @content;
+    }
+  }
+  @else if $point==large-desktop {
+    @media (min-width: 1200px) {
+      @content;
+    }
+  }
+  @else if $point==desktop {
+    @media (min-width: 992px) {
+      @content;
+    }
+  }
+  @else if $point==wordpress {
+    @media (min-width: 783px) {
+      @content;
+    }
+  }
+  @else if $point==handheld {
+    @media (min-width: 768px) {
+      @content;
+    }
+  }
+  @else if $point==large-mobile {
+    @media (min-width: 576px) {
+      @content;
+    }
+  }
+  @else if $point==mobile {
+    @media (min-width: 375px) {
+      @content;
+    }
+  }
+}

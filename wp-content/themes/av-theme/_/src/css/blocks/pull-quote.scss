@@ -1,0 +1,46 @@
+@import "../libs";
+
+.cs-block.pull-quote:not( .is-preview ) {
+
+  .container { @include gutters; }
+  blockquote, .by { 
+    text-align:center; 
+
+    @include breakpoint(handheld) { text-align:left; }
+  }
+
+  blockquote {
+    color:black;
+    font-family: $serif;
+    font-weight: $book;
+    font-style: italic;
+    font-size:30px;
+    margin:0 0 var(--spacer);
+    
+    // text-align:left; 
+  }
+  .by { text-transform:uppercase; }
+
+  .link-holder {
+    @include space-a-small;
+    text-align:center;
+  }
+  .g-link { 
+    color:black;
+    font-size:20px;
+    text-align:center;
+    text-decoration:none;
+    @include link-arrow( black );
+  }
+
+  @include breakpoint( handheld ) {
+    .container { @include grid; }
+    blockquote, .by, .link-holder { grid-column: 1 / -1; }
+    blockquote { font-size:50px; }
+    .by { text-align:center; }
+  }
+  @include breakpoint( desktop ) {
+    blockquote { grid-column: 3 / -3; }
+  }
+
+}

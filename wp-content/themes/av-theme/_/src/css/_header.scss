@@ -1,0 +1,226 @@
+@use "sass:math";
+
+// Main header
+header {
+
+  
+  // Vars
+  --header-top-padding: 0px;
+  --header-text-color: #{$dark};
+
+  // The logo changes sizes to bigger after desktop
+  // @include breakpoint( desktop ) { --header-top-padding: 28px; }
+
+  // Styles
+  color: var(--header-text-color);
+
+  // For slide up / down
+  position:absolute;
+  left:0;
+  @include transition-easing();
+  top: var(--top-of-screen);
+  right:0;
+  z-index: 9;
+
+  .container { 
+    @include grid-with-gutters;
+    margin-top:30px;
+    padding:16px var(--grid-gutter) 13px;
+  }
+
+
+  // ######################
+  .tagline { 
+    @include sr-only;
+
+    align-self:center;
+    grid-column: 1 / span 5;
+    grid-row:1/span 1;
+
+    @include breakpoint( desktop ) {
+      height: auto;
+      position: relative;
+      width: auto;
+      clip: auto;
+      clip-path: none;
+    }
+  }
+
+
+  // ######################
+  .logo {
+    align-self:start;
+    display:block;
+    grid-column: 1 / -1;
+    grid-row: 1 / span 1;
+    justify-self:center;
+    margin:0;
+    pointer-events:auto;
+
+    &::after {
+      content:'';
+      background:url( '../../img/av-logo.svg');
+      background-size:100%;
+      background-repeat:no-repeat;
+      display:block;
+      height:56px;
+      width:100px;
+    }
+  }
+
+
+  // ######################
+  nav {
+    background:rgba( 0,0,0,1);
+    display:grid;
+    align-items:center;
+    font-size:16px;
+    grid-column: 1 / -1;
+    grid-row: 1 / span 1;
+    overflow:hidden;
+    pointer-events:none;
+    position:fixed;
+    right:0;
+    text-align:left;
+    transform:translateX(100%);
+    transition: transform 0.25s;
+    z-index:1;
+    width:50%;
+    height:100vh;
+    top:0;
+
+    .h-main-nav & {
+      transform:translateX(0);
+    }
+
+    @include breakpoint( desktop ) { 
+      background:none;
+      height:auto; 
+      position:relative;
+      inset:auto;
+    }
+
+  }
+
+    .main-nav-trigger {
+      @include grid( 1 );
+      align-self:start;
+      box-sizing:border-box;
+      grid-column: -2 / -1;
+      grid-row:1 / span 1;
+      // margin: -10px auto -10px -10px;
+      justify-self: end;
+      padding:20px;
+      pointer-events:auto;
+      position:relative;
+      white-space:nowrap;
+      z-index:2;
+
+      @include breakpoint( desktop ) { display:none; }
+
+      .lines {
+        height:15px;
+        position:relative;
+        width:15px;
+
+        & > span, &::before, &::after {
+          background: var(--header-text-color);
+          content:'';
+          height:1px;
+          position:absolute;
+          left:0;
+          right:0;
+          top:50%;
+          transition: margin-top $speed, background-color $speed;
+          width:100%;
+
+          .h-main-nav & {
+            background:$light;
+            margin-top:0;
+          }
+        }
+        &::before { margin-top:-5px; }
+        &::after { margin-top:5px; }
+      }
+    }
+    
+
+    nav > ul {
+
+      // Add space to child for smoother transition
+      // &:first-child > li:first-child { margin-top: 60px; }
+
+      &, .sub-menu {
+        @include reset-ul;
+        text-align:center;
+      }
+
+      li {
+        pointer-events:auto;
+
+        a {  //<= all li a
+          display:inline-block;
+          margin-bottom:20px;
+        }
+
+        &:last-child a { margin-bottom:0; }
+      }
+      
+      a { 
+        color:$light;
+        font-weight:$medium;
+        text-decoration:none;
+        
+        @include breakpoint( desktop ) { color:$dark; }
+      }
+
+      // Active state
+      li:hover > a,
+      a:hover { color: $gray; }
+
+      // Underline on current page
+      & > .current-page-ancestor > a, 
+      & > .current-menu-item > a {
+        position:relative;
+
+        &::after {
+          content:'';
+          background:$blue;
+          bottom:-7px;
+          left:0;
+          height:2px;
+          position:absolute;
+          width:100%;
+        }
+      }
+
+
+
+      // Desktop
+      @include breakpoint( desktop ) {
+        background:none;
+        display:flex;
+        gap:35px;
+        inset:auto;
+        opacity:1;
+        justify-self:end;
+        margin-top: 4px;
+        max-height:none;
+        padding-top:0;
+        position:relative;
+        transform:translateX(0);
+        transition:none;
+
+        // Reset top space
+        &:first-child > li:first-child { margin-top: 0; }
+
+        & { 
+          justify-self:end;
+          grid-column: 7 / span 6;
+        }
+
+        li a { margin-bottom:0;}
+      }
+    }
+
+}

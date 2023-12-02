@@ -1,0 +1,124 @@
+:root {
+  --grid-gap: 15px;
+  --grid-gutter: 15px;
+  --spacer: 30px;
+  --spacer-default: 40px;
+  --spacer-lg: 50px;
+}
+@media (min-width: 768px) {
+  :root {
+    --grid-gap: 16px;
+    --grid-gutter: 26px;
+    --spacer: 40px;
+    --spacer-default: 80px;
+    --spacer-lg: 120px;
+  }
+}
+@media (min-width: 992px) {
+  :root {
+    --grid-gap: 20px;
+    --spacer: 50px;
+    --spacer-default: 100px;
+    --spacer-lg: 200px;
+  }
+}
+@media (min-width: 1200px) {
+  :root {
+    --grid-gutter: 28px;
+  }
+}
+@media (min-width: 1640px) {
+  :root {
+    --grid-gutter: 50px;
+  }
+}
+
+.cs-block.intro-text-2:not(.is-preview) {
+  color: #000;
+}
+.cs-block.intro-text-2:not(.is-preview) .container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: var(--grid-gap);
+  max-width: 1640px;
+  margin: 0 auto;
+  padding-left: var(--grid-gutter);
+  padding-right: var(--grid-gutter);
+}
+@media (min-width: 768px) {
+  .cs-block.intro-text-2:not(.is-preview) .container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-column-gap: var(--grid-gap);
+  }
+}
+.cs-block.intro-text-2:not(.is-preview) .content {
+  grid-column: 1/-1;
+}
+@media (min-width: 768px) {
+  .cs-block.intro-text-2:not(.is-preview) .content {
+    grid-column: 7/-1;
+  }
+}
+.cs-block.intro-text-2:not(.is-preview) h1 {
+  font-family: "spezia-serif", georgia, serif;
+  font-size: 50px;
+  font-style: italic;
+  font-weight: 300;
+  line-height: 1.375em;
+  grid-column: 1/-1;
+  margin: 0 0 30px;
+}
+@media (min-width: 768px) {
+  .cs-block.intro-text-2:not(.is-preview) h1 {
+    grid-column: 1/span 5;
+    margin-bottom: 0;
+  }
+}
+.cs-block.intro-text-2:not(.is-preview) .text {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5em;
+  margin-bottom: 30px;
+}
+.cs-block.intro-text-2:not(.is-preview) .g-link {
+  align-items: center;
+  background: none;
+  color: #000;
+  border: 1px solid #000;
+  border-radius: 30px;
+  display: inline-grid;
+  font-size: 16px;
+  height: 60px;
+  outline-offset: -1px;
+  outline-color: #0089FF;
+  outline-style: solid;
+  outline-width: 0;
+  padding: 0 30px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition-timing-function: ease-in-out;
+  transition: transform 0.25s, border-color 0.25s, outline-color 0.25s;
+}
+.cs-block.intro-text-2:not(.is-preview) .g-link span {
+  position: relative;
+  z-index: 1;
+}
+@media (min-width: 768px) and (pointer: fine) {
+  .cs-block.intro-text-2:not(.is-preview) .g-link:hover {
+    background: none;
+    border-color: #0089FF;
+    transform: scale(1.1);
+  }
+}
+@media (min-width: 992px) {
+  .cs-block.intro-text-2:not(.is-preview) .g-link {
+    padding: 0 50px;
+  }
+}
+.cs-block.intro-text-2:not(.is-preview) .g-link:focus-visible {
+  outline: 4px solid coral;
+}
+
+/*# sourceMappingURL=intro-text-2.min.css.map */

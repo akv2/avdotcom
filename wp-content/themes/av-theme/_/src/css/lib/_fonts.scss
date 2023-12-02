@@ -1,0 +1,69 @@
+
+// Font Styles
+@mixin font--default( $size: 14px, $weight: $medium, $line-height: 1.5em  ) {
+  font-size: $size;
+  font-weight: $weight;
+  line-height:$line-height;
+}
+
+
+// Hero large type size
+@mixin font--section-title() {
+  font-family: $sans-serif;
+  font-size: 25px;
+  font-weight: $medium;
+  line-height: 1em;
+  @include breakpoint( handheld ) { font-size:35px; }
+  // @include breakpoint( large-desktop ) { font-size:70px; }
+}
+
+@mixin font--large-serif( $size: 50px, $font-weight: $book, $font-style: italic ) {
+  font-family: $serif;
+  font-size: $size;
+  font-style: $font-style;
+  font-weight: $font-weight;
+  line-height:1.375em;
+}
+
+@mixin font--small-caps( $size: 12px, $weight: $medium ) {
+  font-size: $size;
+  font-weight:$weight;
+  letter-spacing:0.15em;
+  text-transform:uppercase;
+}
+
+
+// Link with arrow
+@mixin link-arrow($color: 'blue', $width: 16px, $height: 11px, $space: 8px ) {
+  &::after {
+    content:'';
+    height:$height;
+    background:url( '../../../img/arrow-#{$color}.svg' );
+    background-size:100%;
+    display:inline-block;
+    margin-left:$space;
+    width:$width;
+  }
+}
+
+
+
+@mixin invert-link-styles {
+  text-decoration:none;
+  &:focus,
+  &:hover {
+    text-decoration: underline;
+  }
+}
+@mixin link-hover-styles {
+  &:hover {
+    color:$lt-link-hover;
+    text-decoration:none;
+  }
+}
+@mixin full-link-hover-styles {
+  text-decoration:none;
+  &:focus { text-decoration:none; }
+  @include link-hover-styles;
+}
+

@@ -1,0 +1,50 @@
+.c-video {
+  position:relative;
+  display:inline-block;
+
+  // .video-controller {
+  //   display:grid;
+  //   height:40%; // <= safari bug
+  //   inset:0;
+  //   position:absolute;
+  //   text-decoration:none;
+  //   top:50%;
+  //   transform:translateY(-50%);
+  //   transition:opacity 0.5s;
+
+  //   &::before,
+  //   &::after {
+  //     align-self:center;
+  //     grid-column:1 / span 1;
+  //     grid-row:1 / span 1;
+  //     justify-self:center;
+  //   }
+  //   &::before {
+  //     background:#707070;
+  //     content:'';
+  //     height:50px;
+  //     width:50px;
+  //   }
+  //   &::after { @include font-icon-inner( $icon-video-play, 20px, #fff ); }
+
+  //   span { @include sr-only; }
+
+  //   @include breakpoint( handheld ) {
+  //     height:60%;
+      
+  //     &:hover::before,
+  //     &:focus::before {
+  //       background:#fff;
+  //     }
+
+  //     &:hover::after,
+  //     &:focus::after {
+  //       color:$over-dk-bg;
+  //     }
+  //   }
+  // }
+
+  // // Fade out while it's playing
+  // &.is-playing .video-controller { opacity:0; }
+
+}

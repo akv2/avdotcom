@@ -1,0 +1,66 @@
+// CSS VARS
+:root {
+  // Default (no admin bar)
+  --grid-gap: 15px;
+  --grid-gutter: 15px;
+  --spacer: 30px;
+  --spacer-default: 40px;
+  --spacer-lg: 50px;
+
+  @include breakpoint( handheld ) { 
+    --grid-gap: 16px;
+    --grid-gutter: 26px; 
+    --spacer: 40px;
+    --spacer-default: 80px;
+    --spacer-lg: 120px;
+  }
+  @include breakpoint( desktop ) {
+    --grid-gap: 20px; 
+    --spacer: 50px;
+    --spacer-default: 100px;
+    --spacer-lg: 200px;
+  }
+  @include breakpoint( large-desktop ) {
+    --grid-gutter: 28px; 
+  }
+  @include breakpoint( full ) { 
+    --grid-gutter: 50px; 
+  }
+}
+
+
+// Globals
+$max-width: 1640px;
+
+// Grid
+$grid-column: 110px;
+$grid-gap: var(--grid-gap);
+
+// Gutter
+$gutter: var(--grid-gutter);
+
+// Colors
+// #F7F5F2, #EFEAE1
+$light: #EFEAE1;
+$blue: #0089FF;
+$gray: #a7a7a7;
+
+// Legacy
+$green: $blue;
+$hover-green: $gray;
+$dark: #000;
+$lt-brown: $gray;
+$brown: #000;
+
+// Fonts
+$font-path: '../../fonts';
+$sans-serif: 'Inter', arial, sans-serif;
+$serif: 'spezia-serif', georgia, serif;
+
+// Font Weights
+$book: 300;
+$regular: 400;
+$medium: 500;
+
+// Speeds
+$speed: 0.5s;

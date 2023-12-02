@@ -1,0 +1,157 @@
+@import '../libs';
+
+.cs-block.contact-form:not(.is-preview ) {
+
+  .container { @include grid-with-gutters; }
+  
+  .info { 
+    @include font--default;
+    color:$dark;
+    grid-column: 1 / -1;
+    margin-bottom:30px;
+    @include breakpoint( large-mobile ) { grid-column: 1 / span 2; }
+    @include breakpoint( handheld ) { 
+      grid-column: 1 / span 6; 
+      margin-bottom:50px;
+    }
+    @include breakpoint( desktop ) { grid-column: 1 / span 4; }
+
+    p { margin:0 0 30px; }
+    p:last-child { margin-bottom:0; }
+    a { color:$dark; }
+  }
+  .content {
+    // @include font--mid-sans;
+    color:$dark;
+    grid-column: 1 / -1;
+    margin-bottom:30px;
+
+    @include breakpoint( large-mobile ) { grid-column: 3 / span 2; }
+    @include breakpoint( handheld ) { 
+      grid-column: 7 / span 6; 
+      margin-bottom:50px;
+    }
+    @include breakpoint( desktop ) { 
+      grid-column: 1 / span 4;
+      margin-bottom:0;
+      align-self:end;
+    }
+
+    .text { margin-bottom:30px; }
+    .g-link { @include button; }
+  }
+
+
+  // Gravity Forms
+  .gform_heading { @include sr-only; }
+  .gravity-theme, .gform_not_found {
+    @include font--default;
+    grid-column: 1 / -1;
+    @include breakpoint( desktop ) {
+      grid-column: 5 / -1;
+      grid-row: 1 / span 2;
+    }
+    @include breakpoint( large-desktop ) { grid-column: 7 / -1; }
+  }
+  .gform_fields {
+    @include grid(6); 
+    margin-bottom:30px;
+    row-gap: $grid-gap;
+    
+
+    .gfield--width-full, .gfield--width-half { grid-column: 1 / -1; }
+    @include breakpoint( large-mobile ) {
+      .gfield--width-full { grid-column: span 6; }
+      .gfield--width-half { grid-column: span 3; }
+    }
+
+
+    label { @include sr-only; }
+    input, textarea, .ginput_container_select {
+      // @include font--mid-sans;
+      background:none;
+      border:1px solid $dark;
+      border-radius:50px;
+      width:100%;
+
+      appearance:none;
+      -webkit-appearance:none;
+
+
+      &::placeholder { color: $dark; }
+      &:focus-visible { border:1px solid transparent;outline: 1px solid $green; }
+      // &:focus-visible { outline:4px solid coral;}
+    }
+    input { 
+      padding:0 30px;
+      height: 60px;
+      @include breakpoint( desktop ) {
+        padding:0 50px;
+        height: 100px;
+      }
+    }
+    textarea {
+      padding:30px;
+      @include breakpoint( desktop ) {
+        padding:38px 50px;
+      }
+    }
+
+
+    // SELECT
+    // Carret goes on the container
+    .ginput_container_select {
+      // display: grid;
+      // grid-template-areas: "select";
+      // align-items:center;
+      padding:0;
+      position:relative;
+      height: 60px;
+
+      &:focus-within { border:1px solid transparent; }
+
+      @include breakpoint( desktop ) { height: 100px; }
+
+      // select, &::after { grid-area: select; }
+    }
+    select { 
+      // A reset of styles, including removing the default dropdown arrow
+      -moz-appearance:none; /* Firefox */
+      -webkit-appearance:none; /* Safari and Chrome */
+      appearance: none;
+      // Additional resets for further consistency
+      background-color: transparent;
+      border: none;
+      margin: 0;
+      width: 100%;
+      font-family: inherit;
+      font-size: inherit;
+      cursor: inherit;
+      line-height: inherit;
+      outline: none;
+
+      &::-ms-expand { display: none; }
+
+      * { 
+        background:$light;
+        font-size:20px;
+        
+      }
+    }
+
+    .gfield--type-hidden { position: absolute; }
+    .google-recaptcha-t-c { 
+      @include font--default(14px);
+      color: $green;
+      grid-column: 1 / -1;
+
+      a { color: $green }
+    }
+  }
+  .gform_button { 
+    @include button-static; 
+    min-width:240px;
+    width:auto;
+  }
+
+}

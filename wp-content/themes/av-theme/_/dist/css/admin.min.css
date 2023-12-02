@@ -1,0 +1,73 @@
+:root {
+  --grid-gap: 15px;
+  --grid-gutter: 15px;
+  --spacer: 30px;
+  --spacer-default: 40px;
+  --spacer-lg: 50px;
+}
+@media (min-width: 768px) {
+  :root {
+    --grid-gap: 16px;
+    --grid-gutter: 26px;
+    --spacer: 40px;
+    --spacer-default: 80px;
+    --spacer-lg: 120px;
+  }
+}
+@media (min-width: 992px) {
+  :root {
+    --grid-gap: 20px;
+    --spacer: 50px;
+    --spacer-default: 100px;
+    --spacer-lg: 200px;
+  }
+}
+@media (min-width: 1200px) {
+  :root {
+    --grid-gutter: 28px;
+  }
+}
+@media (min-width: 1640px) {
+  :root {
+    --grid-gutter: 50px;
+  }
+}
+
+.wp-block {
+  max-width: 1200px;
+}
+.wp-block .preview-thumb {
+  inset: 20px auto 20px 20px;
+  position: absolute;
+  width: 140px !important;
+}
+.wp-block .preview-text {
+  border: 2px solid #000;
+  font-size: 20px;
+  font-weight: 400;
+  min-height: 80px;
+  padding: 20px 180px;
+  text-align: center;
+}
+.wp-block .preview-text p {
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.components-button.block-list-appender__toggle.block-editor-button-block-appender {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.opt {
+  opacity: 0.5;
+  font-size: 0.75em;
+  font-weight: normal;
+}
+
+.components-button.has-icon .dashicon {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*# sourceMappingURL=admin.min.css.map */

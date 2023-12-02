@@ -1,0 +1,26 @@
+@import '../libs';
+
+.cs-block.intro-text-2:not(.is-preview ) {
+  color:$dark;
+  .container { @include grid-with-gutters; }
+  .content { 
+    grid-column: 1 / -1;
+    @include breakpoint( handheld ) { grid-column: 7 / -1; }
+  }
+
+  h1 { 
+    @include font--large-serif;
+    
+    grid-column: 1 / -1; 
+    margin:0 0 30px;
+    @include breakpoint( handheld ) { 
+      grid-column: 1 / span 5;
+      margin-bottom:0; 
+    }
+  }
+  .text { 
+    @include font--default; 
+    margin-bottom:30px;
+  }
+  .g-link { @include button; }
+}

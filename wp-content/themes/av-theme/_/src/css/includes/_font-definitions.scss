@@ -1,0 +1,27 @@
+// Icon font
+// @font-face {
+//   font-family: '#{$tuuci-font}';
+//   src:  url('#{$font-path}/#{$tuuci-font}/#{$tuuci-font}.eot?rt0b9r');
+//   src:  url('#{$font-path}/#{$tuuci-font}/#{$tuuci-font}.eot?rt0b9r#iefix') format('embedded-opentype'),
+//     url('#{$font-path}/#{$tuuci-font}/#{$tuuci-font}.ttf?rt0b9r') format('truetype'),
+//     url('#{$font-path}/#{$tuuci-font}/#{$tuuci-font}.woff?rt0b9r') format('woff'),
+//     url('#{$font-path}/#{$tuuci-font}/#{$tuuci-font}.svg?rt0b9r##{$tuuci-font}') format('svg');
+//   font-weight: normal;
+//   font-style: normal;
+//   font-display: block;
+// }
+
+@mixin cs_font( $font-name, $the-font-path, $font-weight: 400, $font-style: normal ) {
+  @font-face {
+    font-family: $font-name;
+    src: url('#{$font-path}/#{$the-font-path}.woff2') format('woff2'), 
+        url('#{$font-path}/#{$the-font-path}.woff') format('woff'); 
+    font-weight: $font-weight;
+    font-style: $font-style;
+  }
+}
+
+
+@include cs_font( 'spezia-serif', 'spezia-serif-condensed-regular-b/SpeziaSerifCondensedWebTrial-RegularB', 400, normal );
+@include cs_font( 'spezia-serif', 'spezia-serif-condensed-book-b/SpeziaSerifCondensedWebTrial-BookB', 300, normal );
+@include cs_font( 'spezia-serif', 'spezia-serif-condensed-book-italic-b/SpeziaSerifCondensedWebTrial-BookItalicB', 300, italic );
